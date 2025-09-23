@@ -1,0 +1,187 @@
+extends CharacterBody2D
+
+# CONFIG
+
+var CONFIG : Dictionary = {
+	
+	"BaseSpeed": 100,
+	"BaseFriction" : 0.4
+	
+}
+
+#
+
+# Signals
+
+signal MODIFIER_ADDED
+signal MODIFIER_REMOVED
+signal ADD_MODIFIER(positive : bool, _name : String)
+signal REMOVE_MODIFIER(_name : String)
+
+#
+
+# Exports
+
+@export var DEBUG_MODE : bool = true
+
+@export var Speed : int = CONFIG["BaseSpeed"]
+@export var Dash_Cooldown : float = 1000.0 # in ms
+@export var Friction : float = CONFIG["BaseFriction"] # less -> more slidey
+
+#
+
+# Onreadys 
+
+@onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
+
+#
+
+# Variables
+
+var State : String = "idle"
+var Direction : String = "down"
+var _Input : Vector2
+var Modifiers : Array = []
+
+var Can_Move : bool = true
+var Can_Dash : bool = true
+
+var Currently_Animating : bool = false
+var Currently_Dashing : bool = false :
+	set(v):
+		
+		Currently_Dashing = v
+		
+		if v:
+			await get_tree().create_timer(0.3).timeout
+			Currently_Dashing = false
+
+var Last_Dash : float = 0.0
+
+#
+
+# Functions
+
+func handleDebug():
+	if not DEBUG_MODE: return
+	
+	$TEMP.visible = true
+	$TEMP/Label.text = State + " - " + Direction
+	
+	#if Input.is_action_just_pressed("DEBUG-TEST1"): REMOVE_MODIFIER.emit("Speed V")
+
+func handleMovement():
+	if not Can_Move: return
+	
+	_Input = Vector2(
+		Input.get_action_strength("Player-MoveRight") - Input.get_action_strength("Player-MoveLeft"),
+		Input.get_action_strength("Player-MoveDown") - Input.get_action_strength("Player-MoveUp")
+	)
+	
+	velocity = lerp(velocity, _Input.normalized() * Speed, Friction)
+	
+	move_and_slide()
+
+func handleDash():
+	if not Can_Dash: return
+	if Input.is_action_just_pressed("Player-Dash"):
+		if not (Time.get_ticks_msec() - Last_Dash) > Dash_Cooldown: return
+		
+		Currently_Dashing = true
+		
+		Last_Dash = Time.get_ticks_msec()
+		velocity = _Input * 2500
+
+func handleStateAndDir():
+	if _Input == Vector2.ZERO:
+		State = "idle"
+	elif _Input != Vector2.ZERO && not Currently_Dashing:
+		State = "walk"
+	else:
+		State = "dash"
+	
+	if _Input.x > 0: Direction = "right"
+	elif _Input.x < 0: Direction = "left"
+	
+	if _Input.y > 0: Direction = "down"
+	elif _Input.y < 0: Direction = "up"
+
+func handleAnims():
+	if not AnimatedSprite.sprite_frames.has_animation(State + "_" + Direction): return
+	
+	AnimatedSprite.play(State + "_" + Direction)
+	Currently_Animating = true
+
+func findModifierInActive(_name, _return : bool = false):
+	for mod in Modifiers:
+		if mod["Name"] == _name && not _return: return true
+		elif mod["Name"] == _name && _return: return mod
+	
+	return false
+
+func addModifier(positive : bool , _name : String):
+	if findModifierInActive(_name): return
+	
+	var modifier = DATA.returnModifier(false, positive, _name)
+	
+	Modifiers.append(modifier)
+	MODIFIER_ADDED.emit()
+
+func removeModifier(_name : String):
+	if not findModifierInActive(_name): return
+	
+	var modifier = findModifierInActive(_name, true)
+	if modifier is Dictionary: modifier["CurrentlyApplied"] = false
+	
+	Modifiers.erase(modifier)
+	MODIFIER_REMOVED.emit()
+
+func handleModifiers():
+	
+	var speed = 0
+	var friction = 0
+	
+	for mod in Modifiers:
+		
+		if mod["CurrentlyApplied"]: continue
+		
+		mod["CurrentlyApplied"] = true
+		
+		match mod["Type"]:
+			"Speed":
+				speed += 1
+				Speed *= mod["Value"]
+			"Friction":
+				friction += 1
+				Friction = mod["Value"]
+			_:
+				pass
+	
+	if speed == 0: Speed = CONFIG["BaseSpeed"]
+	if friction == 0: Friction = CONFIG["BaseFriction"]
+
+func connectSignals():
+	ADD_MODIFIER.connect(func(positive : bool , _name : String): addModifier(positive, _name) )
+	REMOVE_MODIFIER.connect(func(_name : String): removeModifier(_name) )
+	
+	MODIFIER_ADDED.connect(func(): handleModifiers())
+	MODIFIER_REMOVED.connect(func(): handleModifiers())
+
+#
+
+# Connectors
+
+func _physics_process(_delta : float) -> void:
+	handleMovement()
+	handleDash()
+	
+	handleStateAndDir()
+	handleAnims()
+	
+	handleDebug()
+	
+
+func _ready() -> void:
+	connectSignals()
+
+#

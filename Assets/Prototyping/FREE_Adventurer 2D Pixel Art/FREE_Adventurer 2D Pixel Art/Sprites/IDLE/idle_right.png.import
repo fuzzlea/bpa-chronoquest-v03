@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cyq64d1ok82h6"
+path="res://.godot/imported/idle_right.png-5b2318b1293ccd116f45a675bbb93756.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Prototyping/FREE_Adventurer 2D Pixel Art/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_right.png"
+dest_files=["res://.godot/imported/idle_right.png-5b2318b1293ccd116f45a675bbb93756.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
