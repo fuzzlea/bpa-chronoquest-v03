@@ -1,5 +1,9 @@
 extends Node
 
+# Variables
+
+var DATABASE : SQLite
+
 var MODIFIERS : Dictionary = {
 	
 	"Positive": [
@@ -53,6 +57,10 @@ var ICONS : Dictionary = {
 	
 }
 
+#
+
+# Functions
+
 func returnModifier(
 	random: bool = true, 
 	positive : bool = true, 
@@ -75,3 +83,12 @@ func returnModifier(
 		modifier = MODIFIERS[folderToCheck].get(rand)
 	
 	return modifier
+
+#
+
+# Connectors
+
+func _ready() -> void:
+	pass
+
+#

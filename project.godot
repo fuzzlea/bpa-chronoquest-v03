@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ChronoQuest: Fractures In Time"
 run/main_scene="uid://jc3gppag4fx6"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -34,6 +34,7 @@ project/assembly_name="ChronoQuest- Fractures In Time"
 
 folder_colors={
 "res://Assets/": "red",
+"res://Data/": "yellow",
 "res://Scenes/": "blue",
 "res://Scripts/": "green"
 }
