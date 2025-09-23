@@ -68,7 +68,7 @@ func handleDebug():
 	$TEMP.visible = true
 	$TEMP/Label.text = State + " - " + Direction
 	
-	#if Input.is_action_just_pressed("DEBUG-TEST1"): REMOVE_MODIFIER.emit("Speed V")
+	if Input.is_action_just_pressed("DEBUG-TEST1"): REMOVE_MODIFIER.emit("Slide III");
 
 func handleMovement():
 	if not Can_Move: return

@@ -761,6 +761,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Label" type="Label" parent="TEMP"]
+layout_mode = 0
 offset_left = -36.0
 offset_top = -40.0
 offset_right = 37.0
