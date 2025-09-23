@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 # CONFIG
 
-var CONFIG : Dictionary = {
+var CONFIG: Dictionary = {
 	
 	"BaseSpeed": 100,
-	"BaseFriction" : 0.4
+	"BaseFriction": 0.4
 	
 }
 
@@ -15,48 +15,47 @@ var CONFIG : Dictionary = {
 
 signal MODIFIER_ADDED
 signal MODIFIER_REMOVED
-signal ADD_MODIFIER(positive : bool, _name : String)
-signal REMOVE_MODIFIER(_name : String)
+signal ADD_MODIFIER(positive: bool, _name: String)
+signal REMOVE_MODIFIER(_name: String)
 
 #
 
 # Exports
 
-@export var DEBUG_MODE : bool = true
+@export var DEBUG_MODE: bool = true
 
-@export var Speed : int = CONFIG["BaseSpeed"]
-@export var Dash_Cooldown : float = 1000.0 # in ms
-@export var Friction : float = CONFIG["BaseFriction"] # less -> more slidey
+@export var Speed: int = CONFIG["BaseSpeed"]
+@export var Dash_Cooldown: float = 1000.0 # in ms
+@export var Friction: float = CONFIG["BaseFriction"] # less -> more slidey
 
 #
 
 # Onreadys 
 
-@onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var AnimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 #
 
 # Variables
 
-var State : String = "idle"
-var Direction : String = "down"
-var _Input : Vector2
-var Modifiers : Array = []
+var State: String = "idle"
+var Direction: String = "down"
+var _Input: Vector2
+var Modifiers: Array = []
 
-var Can_Move : bool = true
-var Can_Dash : bool = true
+var Can_Move: bool = true
+var Can_Dash: bool = true
 
-var Currently_Animating : bool = false
-var Currently_Dashing : bool = false :
+var Currently_Animating: bool = false
+var Currently_Dashing: bool = false:
 	set(v):
-		
 		Currently_Dashing = v
 		
 		if v:
 			await get_tree().create_timer(0.3).timeout
 			Currently_Dashing = false
 
-var Last_Dash : float = 0.0
+var Last_Dash: float = 0.0
 
 #
 
@@ -68,7 +67,7 @@ func handleDebug():
 	$TEMP.visible = true
 	$TEMP/Label.text = State + " - " + Direction
 	
-	if Input.is_action_just_pressed("DEBUG-TEST1"): REMOVE_MODIFIER.emit("Slide III");
+	if Input.is_action_just_pressed("DEBUG-TEST1"): REMOVE_MODIFIER.emit("Speed V");
 
 func handleMovement():
 	if not Can_Move: return
@@ -112,14 +111,14 @@ func handleAnims():
 	AnimatedSprite.play(State + "_" + Direction)
 	Currently_Animating = true
 
-func findModifierInActive(_name, _return : bool = false):
+func findModifierInActive(_name, _return: bool = false):
 	for mod in Modifiers:
 		if mod["Name"] == _name && not _return: return true
 		elif mod["Name"] == _name && _return: return mod
 	
 	return false
 
-func addModifier(positive : bool , _name : String):
+func addModifier(positive: bool, _name: String):
 	if findModifierInActive(_name): return
 	
 	var modifier = DATA.returnModifier(false, positive, _name)
@@ -127,7 +126,7 @@ func addModifier(positive : bool , _name : String):
 	Modifiers.append(modifier)
 	MODIFIER_ADDED.emit()
 
-func removeModifier(_name : String):
+func removeModifier(_name: String):
 	if not findModifierInActive(_name): return
 	
 	var modifier = findModifierInActive(_name, true)
@@ -137,12 +136,10 @@ func removeModifier(_name : String):
 	MODIFIER_REMOVED.emit()
 
 func handleModifiers():
-	
 	var speed = 0
 	var friction = 0
 	
 	for mod in Modifiers:
-		
 		if mod["CurrentlyApplied"]: continue
 		
 		mod["CurrentlyApplied"] = true
@@ -161,8 +158,8 @@ func handleModifiers():
 	if friction == 0: Friction = CONFIG["BaseFriction"]
 
 func connectSignals():
-	ADD_MODIFIER.connect(func(positive : bool , _name : String): addModifier(positive, _name) )
-	REMOVE_MODIFIER.connect(func(_name : String): removeModifier(_name) )
+	ADD_MODIFIER.connect(func(positive: bool, _name: String): addModifier(positive, _name))
+	REMOVE_MODIFIER.connect(func(_name: String): removeModifier(_name))
 	
 	MODIFIER_ADDED.connect(func(): handleModifiers())
 	MODIFIER_REMOVED.connect(func(): handleModifiers())
@@ -171,7 +168,7 @@ func connectSignals():
 
 # Connectors
 
-func _physics_process(_delta : float) -> void:
+func _physics_process(_delta: float) -> void:
 	handleMovement()
 	handleDash()
 	
