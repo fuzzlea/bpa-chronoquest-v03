@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var CONFIG: Dictionary = {
 	
-	"BaseSpeed": 100,
+	"BaseSpeed": 75,
 	"BaseFriction": 0.4
 	
 }
@@ -15,7 +15,7 @@ var CONFIG: Dictionary = {
 
 signal MODIFIER_ADDED
 signal MODIFIER_REMOVED
-signal ADD_MODIFIER(positive: bool, _name: String)
+signal ADD_MODIFIER(_name: String)
 signal REMOVE_MODIFIER(_name: String)
 
 #
@@ -67,7 +67,7 @@ func handleDebug():
 	$TEMP.visible = true
 	$TEMP/Label.text = State + " - " + Direction
 	
-	if Input.is_action_just_pressed("DEBUG-TEST1"): ADD_MODIFIER.emit(true, "Speed III");
+	if Input.is_action_just_pressed("DEBUG-TEST1"): ADD_MODIFIER.emit("Speed III"); ADD_MODIFIER.emit("Slide III")
 
 func handleMovement():
 	if not Can_Move: return
@@ -99,8 +99,8 @@ func handleStateAndDir():
 	else:
 		State = "dash"
 	
-	if _Input.x > 0: Direction = "right"
-	elif _Input.x < 0: Direction = "left"
+	if _Input.x > 0: Direction = "right"; AnimatedSprite.flip_h = false
+	elif _Input.x < 0: Direction = "left"; AnimatedSprite.flip_h = true
 	
 	if _Input.y > 0: Direction = "down"
 	elif _Input.y < 0: Direction = "up"
@@ -111,50 +111,33 @@ func handleAnims():
 	AnimatedSprite.play(State + "_" + Direction)
 	Currently_Animating = true
 
-func findModifierInActive(_name, _return: bool = false):
+func findModifierInActive(_name):
 	for mod in Modifiers:
-		if mod["Name"] == _name && not _return: return true
-		elif mod["Name"] == _name && _return: return mod
+		if mod["Name"] == _name: return mod
 	
-	return false
+	return null
 
-func addModifier(positive: bool, _name: String):
-	if findModifierInActive(_name): return
+func addModifier(_name: String):
+	if findModifierInActive(_name) != null: return
 	
-	var modifier = DATA.returnModifier(false, positive, _name)
+	var modifier = DATA.returnModifier(false, _name)
 	
 	Modifiers.append(modifier.duplicate())
 	MODIFIER_ADDED.emit()
 
 func removeModifier(_name: String):
-	if not findModifierInActive(_name): return
+	if findModifierInActive(_name) == null: return
 	
-	var modifier = findModifierInActive(_name, true)
+	var modifier = findModifierInActive(_name)
 	
 	Modifiers.erase(modifier)
 	MODIFIER_REMOVED.emit()
 
 func handleModifiers():
-	var speed = 0
-	var friction = 0
-	
-	for mod in Modifiers:
-		
-		match mod["Type"]:
-			"Speed":
-				speed += 1
-				Speed *= mod["Value"]
-			"Friction":
-				friction += 1
-				Friction = mod["Value"]
-			_:
-				pass
-	
-	if speed == 0: Speed = CONFIG["BaseSpeed"]
-	if friction == 0: Friction = CONFIG["BaseFriction"]
+	print(Modifiers)
 
 func connectSignals():
-	ADD_MODIFIER.connect(func(positive: bool, _name: String): addModifier(positive, _name))
+	ADD_MODIFIER.connect(func(_name: String): addModifier(_name))
 	REMOVE_MODIFIER.connect(func(_name: String): removeModifier(_name))
 	
 	MODIFIER_ADDED.connect(func(): handleModifiers())

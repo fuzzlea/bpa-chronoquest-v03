@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6cupr6hd4rk7"]
+[gd_scene load_steps=6 format=3 uid="uid://dlevau0humivm"]
 
-[ext_resource type="Texture2D" uid="uid://l32f7twxqd1o" path="res://Assets/Prototyping/Tilemaps/library.png" id="1_08m3n"]
-[ext_resource type="PackedScene" uid="uid://m2780x36icmh" path="res://Scenes/Player/player.tscn" id="2_3refa"]
-[ext_resource type="PackedScene" uid="uid://dkwr4f6i8grim" path="res://Scenes/Singletons/HubBG.tscn" id="3_3refa"]
+[ext_resource type="Texture2D" uid="uid://l32f7twxqd1o" path="res://Assets/Prototyping/Tilemaps/library.png" id="1_xiwxn"]
+[ext_resource type="PackedScene" uid="uid://m2780x36icmh" path="res://Scenes/Player/player.tscn" id="2_w8q43"]
+[ext_resource type="PackedScene" uid="uid://dkwr4f6i8grim" path="res://Scenes/Singletons/HubBG.tscn" id="3_qccrg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivo86"]
-texture = ExtResource("1_08m3n")
+texture = ExtResource("1_xiwxn")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -165,7 +165,7 @@ y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
-scale = Vector2(1.75, 1.75)
+position = Vector2(373, 225)
 tile_set = SubResource("TileSet_4dloh")
 format = 2
 layer_0/name = "void"
@@ -185,7 +185,7 @@ layer_4/y_sort_enabled = true
 layer_4/z_index = 5
 layer_4/tile_data = PackedInt32Array(917517, 131072, 2, 917523, 131072, 2, 917520, 131072, 2, 1114128, 131072, 2, 1114125, 131072, 2, 1114131, 131072, 2, 720908, 0, 3, 720909, 65536, 3, 720910, 131072, 3, 720916, 0, 3, 720917, 65536, 3, 720918, 131072, 3, 720912, 0, 3, 720914, 131072, 3, 720913, 65536, 3, 720911, 0, 0, 720915, 65536, 0, 1114127, 65536, 0, 1114130, 0, 0, 917516, 65536, 0, 917525, 0, 0, 917532, 0, 2, 917535, 0, 2, 917534, 65536, 0, 917531, 0, 0, 917537, 0, 0, 720944, 0, 6)
 
-[node name="Player" parent="." instance=ExtResource("2_3refa")]
+[node name="Player" parent="." instance=ExtResource("2_w8q43")]
 z_index = 5
 y_sort_enabled = true
 position = Vector2(863, 492)
@@ -202,7 +202,7 @@ offset_bottom = 1564.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HubBg" parent="Control" instance=ExtResource("3_3refa")]
+[node name="HubBg" parent="Control" instance=ExtResource("3_qccrg")]
 layout_mode = 1
 offset_left = -131.0
 offset_top = -123.0
