@@ -152,46 +152,37 @@ var TIME_PERIODS : Dictionary = {
 
 var RELICS : Dictionary = {}
 
-var MODIFIERS : Dictionary = {
+var MODIFIERS : Array = [
+		
+	{"Name": "Speed I", "Type": "Speed", "Value": 1.25}, # Speed Is Increased By *=[Value]
+	{"Name": "Speed II", "Type": "Speed", "Value": 1.5},
+	{"Name": "Speed III", "Type": "Speed", "Value": 2},
+	{"Name": "Speed IV", "Type": "Speed", "Value": 2.5},
+	{"Name": "Speed V", "Type": "Speed", "Value": 3},
 	
-	"Positive": [
-		
-		{"Name": "Speed I", "Type": "Speed", "Value": 1.25}, # Speed Is Increased By *=[Value]
-		{"Name": "Speed II", "Type": "Speed", "Value": 1.5},
-		{"Name": "Speed III", "Type": "Speed", "Value": 2},
-		{"Name": "Speed IV", "Type": "Speed", "Value": 2.5},
-		{"Name": "Speed V", "Type": "Speed", "Value": 3},
-		
-		{"Name": "Burn I", "Type": "Applied Effect", "Value": 3}, # Enemy Burns Every [Value] Seconds On Hit
-		{"Name": "Burn II", "Type": "Applied Effect", "Value": 1},
-		{"Name": "Burn III", "Type": "Applied Effect", "Value": 0.5},
-		
-		{"Name": "Knockback I", "Type": "Knockback", "Value": 1}, # Enemy Is Knocked Back By [Value] Amount On Hit
-		{"Name": "Knockback II", "Type": "Knockback", "Value": 5},
-		{"Name": "Knockback III", "Type": "Knockback", "Value": 10},
-		
-		{"Name": "Thorn I", "Type": "Effect", "Value": 3}, # If Enemy Is In Range Of [Value] , They Take Damage Every Second
-		{"Name": "Thorn II", "Type": "Effect", "Value": 10},
-		{"Name": "Thorn III", "Type": "Effect", "Value": 25},
-		
-	],
+	{"Name": "Burn I", "Type": "Applied Effect", "Value": 3}, # Enemy Burns Every [Value] Seconds On Hit
+	{"Name": "Burn II", "Type": "Applied Effect", "Value": 1},
+	{"Name": "Burn III", "Type": "Applied Effect", "Value": 0.5},
 	
-	"Negative": [
+	{"Name": "Knockback I", "Type": "Knockback", "Value": 1}, # Enemy Is Knocked Back By [Value] Amount On Hit
+	{"Name": "Knockback II", "Type": "Knockback", "Value": 5},
+	{"Name": "Knockback III", "Type": "Knockback", "Value": 10},
+	
+	{"Name": "Thorn I", "Type": "Effect", "Value": 3}, # If Enemy Is In Range Of [Value] , They Take Damage Every Second
+	{"Name": "Thorn II", "Type": "Effect", "Value": 10},
+	{"Name": "Thorn III", "Type": "Effect", "Value": 25},
+	
+	{"Name": "Drag I", "Type": "Speed", "Value": 0.9}, # Speed Is Decreased By *=[Value]
+	{"Name": "Drag II", "Type": "Speed", "Value": 0.8},
+	{"Name": "Drag III", "Type": "Speed", "Value": 0.65},
+	{"Name": "Drag IV", "Type": "Speed", "Value": 0.5},
+	{"Name": "Drag V", "Type": "Speed", "Value": 0.3},
+	
+	{"Name": "Slide I", "Type": "Friction", "Value": 0.2}, # Friciton Is Set To [Value]
+	{"Name": "Slide II", "Type": "Friction", "Value": 0.1},
+	{"Name": "Slide III", "Type": "Friction", "Value": 0.05},
 		
-		{"Name": "Drag I", "Type": "Speed", "Value": 0.9}, # Speed Is Decreased By *=[Value]
-		{"Name": "Drag II", "Type": "Speed", "Value": 0.8},
-		{"Name": "Drag III", "Type": "Speed", "Value": 0.65},
-		{"Name": "Drag IV", "Type": "Speed", "Value": 0.5},
-		{"Name": "Drag V", "Type": "Speed", "Value": 0.3},
-		
-		{"Name": "Slide I", "Type": "Friction", "Value": 0.2}, # Friciton Is Set To [Value]
-		{"Name": "Slide II", "Type": "Friction", "Value": 0.1},
-		{"Name": "Slide III", "Type": "Friction", "Value": 0.05},
-		
-		
-	]
-
-}
+]
 
 var ICONS : Dictionary = {
 	
@@ -222,25 +213,20 @@ var ICONS : Dictionary = {
 # Functions
 
 func returnModifier(
-	random: bool = true, 
-	positive : bool = true, 
+	random: bool = false, 
 	_name : String = "Speed I"
 	):
 	
 	var modifier
-	var folderToCheck
-	
-	if positive: folderToCheck = "Positive" 
-	else: folderToCheck = "Negative"
 	
 	if not random:
-		for mod in MODIFIERS[folderToCheck]:
+		for mod in MODIFIERS:
 			if mod["Name"] == _name: modifier = mod; break
 	else:
-		var sz = MODIFIERS[folderToCheck].size() - 1
+		var sz = MODIFIERS.size() - 1
 		var rand = randi_range(0, sz)
 		
-		modifier = MODIFIERS[folderToCheck].get(rand)
+		modifier = MODIFIERS.get(rand)
 	
 	return modifier
 
