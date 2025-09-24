@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var CONFIG: Dictionary = {
 	
-	"BaseSpeed": 100,
+	"BaseSpeed": 75,
 	"BaseFriction": 0.4
 	
 }
@@ -99,8 +99,8 @@ func handleStateAndDir():
 	else:
 		State = "dash"
 	
-	if _Input.x > 0: Direction = "right"
-	elif _Input.x < 0: Direction = "left"
+	if _Input.x > 0: Direction = "right"; AnimatedSprite.flip_h = false
+	elif _Input.x < 0: Direction = "left"; AnimatedSprite.flip_h = true
 	
 	if _Input.y > 0: Direction = "down"
 	elif _Input.y < 0: Direction = "up"

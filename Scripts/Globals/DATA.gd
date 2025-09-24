@@ -16,27 +16,24 @@ var TIME_PERIODS : Dictionary = {
 			
 			{
 				"Name": "Pangea",
-				"Description": "Ensure the safety of life, dodge lava bursts and falling rocks while guiding early species to safety.",
+				"Description": "The original continent, without it, what would Earth look like? Don't find out. Restore Pangea back to its original state while getting rid of Jimpus' associates.",
 				"Year": "200mya",
-				"Time": 60,
 				"Completed": false,
 				"ScenePath": "",
 			},
 			
 			{
 				"Name": "Take Flight",
-				"Description": "What's in the air? Correctly assemble the wing-bones of a new species to introduce flight.",
+				"Description": "What's in the air? Nothing if you don't restore the fossils of the bird species. Return the fossils back to the library and make sure Jimpus doesn't get his hands on them again.",
 				"Year": "150mya",
-				"Time": 30,
 				"Completed": false,
 				"ScenePath": "",
 			},
 			
 			{
 				"Name": "Herbivority",
-				"Description": "Save the herbivore species, fight against their carniverous predators and ensure herbivores don't go extinct.",
+				"Description": "Jimpus is trying to get rid of the Herbivores, make sure he doesn't. Ensure the Heart of the Herb is returned home safely.",
 				"Year": "90mya",
-				"Time": 120,
 				"Completed": false,
 				"ScenePath": "",
 			},
@@ -46,31 +43,30 @@ var TIME_PERIODS : Dictionary = {
 		"Relics": [
 			
 			{
-				"Name": "Molten Rock",
-				"Description": "A rock excavated from the molten-ridden land of Pangea.",
-				"IconPath": ""
+				"Name": "Pangea",
+				"Description": "A rock in the shape of the former-continent.",
+				"Icon": ""
 			},
 			
 			{
-				"Name": "Ancient Fossil",
-				"Description": "A bone from an ancient species.",
-				"IconPath": ""
+				"Name": "The Wing",
+				"Description": "A fossil containing the art of flight.",
+				"Icon": ""
 			},
 			
 			{
-				"Name": "Ancient Flower",
-				"Description": "A mesmorizing flower from ancient times.",
-				"IconPath": ""
+				"Name": "Heart of the Herb",
+				"Description": "A mesmorizing flower that keeps agricultural life from wilting.",
+				"Icon": ""
 			},
 			
 		],
 		
 		"Boss": {
 			
-			"Name": "",
-			"Description": "",
-			"Time": 0,
-			"Health": 0,
+			"Name": "Tyranious",
+			"Description": "The Mesozoic Key resides in his belly... omnivore at heart huh. Get it out, restore the Mesozoic Era.",
+			"Health": 100,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -147,32 +143,32 @@ var TIME_PERIODS : Dictionary = {
 var MODIFIERS : Array = [
 		
 	{"Name": "Speed I", "Type": "Speed", "Value": 1.25, "Icon": ""}, # Speed Is Increased By *=[Value]
-	{"Name": "Speed II", "Type": "Speed", "Value": 1.5},
-	{"Name": "Speed III", "Type": "Speed", "Value": 2},
-	{"Name": "Speed IV", "Type": "Speed", "Value": 2.5},
-	{"Name": "Speed V", "Type": "Speed", "Value": 3},
+	{"Name": "Speed II", "Type": "Speed", "Value": 1.5, "Icon": ""},
+	{"Name": "Speed III", "Type": "Speed", "Value": 2, "Icon": ""},
+	{"Name": "Speed IV", "Type": "Speed", "Value": 2.5, "Icon": ""},
+	{"Name": "Speed V", "Type": "Speed", "Value": 3, "Icon": ""},
 	
-	{"Name": "Burn I", "Type": "Applied Effect", "Value": 3}, # Enemy Burns Every [Value] Seconds On Hit
-	{"Name": "Burn II", "Type": "Applied Effect", "Value": 1},
-	{"Name": "Burn III", "Type": "Applied Effect", "Value": 0.5},
+	{"Name": "Burn I", "Type": "Applied Effect", "Value": 3, "Icon": ""}, # Enemy Burns Every [Value] Seconds On Hit
+	{"Name": "Burn II", "Type": "Applied Effect", "Value": 1, "Icon": ""},
+	{"Name": "Burn III", "Type": "Applied Effect", "Value": 0.5, "Icon": ""},
 	
-	{"Name": "Knockback I", "Type": "Knockback", "Value": 1}, # Enemy Is Knocked Back By [Value] Amount On Hit
-	{"Name": "Knockback II", "Type": "Knockback", "Value": 5},
-	{"Name": "Knockback III", "Type": "Knockback", "Value": 10},
+	{"Name": "Knockback I", "Type": "Knockback", "Value": 1, "Icon": ""}, # Enemy Is Knocked Back By [Value] Amount On Hit
+	{"Name": "Knockback II", "Type": "Knockback", "Value": 5, "Icon": ""},
+	{"Name": "Knockback III", "Type": "Knockback", "Value": 10, "Icon": ""},
 	
-	{"Name": "Thorn I", "Type": "Effect", "Value": 3}, # If Enemy Is In Range Of [Value] , They Take Damage Every Second
-	{"Name": "Thorn II", "Type": "Effect", "Value": 10},
-	{"Name": "Thorn III", "Type": "Effect", "Value": 25},
+	{"Name": "Thorn I", "Type": "Effect", "Value": 3, "Icon": ""}, # If Enemy Is In Range Of [Value] , They Take Damage Every Second
+	{"Name": "Thorn II", "Type": "Effect", "Value": 10, "Icon": ""},
+	{"Name": "Thorn III", "Type": "Effect", "Value": 25, "Icon": ""},
 	
-	{"Name": "Drag I", "Type": "Speed", "Value": 0.9}, # Speed Is Decreased By *=[Value]
-	{"Name": "Drag II", "Type": "Speed", "Value": 0.8},
-	{"Name": "Drag III", "Type": "Speed", "Value": 0.65},
-	{"Name": "Drag IV", "Type": "Speed", "Value": 0.5},
-	{"Name": "Drag V", "Type": "Speed", "Value": 0.3},
+	{"Name": "Drag I", "Type": "Speed", "Value": 0.9, "Icon": ""}, # Speed Is Decreased By *=[Value]
+	{"Name": "Drag II", "Type": "Speed", "Value": 0.8, "Icon": ""},
+	{"Name": "Drag III", "Type": "Speed", "Value": 0.65, "Icon": ""},
+	{"Name": "Drag IV", "Type": "Speed", "Value": 0.5, "Icon": ""},
+	{"Name": "Drag V", "Type": "Speed", "Value": 0.3, "Icon": ""},
 	
-	{"Name": "Slide I", "Type": "Friction", "Value": 0.2}, # Friciton Is Set To [Value]
-	{"Name": "Slide II", "Type": "Friction", "Value": 0.1},
-	{"Name": "Slide III", "Type": "Friction", "Value": 0.05},
+	{"Name": "Slide I", "Type": "Friction", "Value": 0.2, "Icon": ""}, # Friciton Is Set To [Value]
+	{"Name": "Slide II", "Type": "Friction", "Value": 0.1, "Icon": ""},
+	{"Name": "Slide III", "Type": "Friction", "Value": 0.05, "Icon": ""},
 		
 ]
 
