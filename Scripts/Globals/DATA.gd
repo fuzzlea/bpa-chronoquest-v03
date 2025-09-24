@@ -18,7 +18,6 @@ var TIME_PERIODS : Dictionary = {
 				"Name": "Pangea",
 				"Description": "Ensure the safety of life, dodge lava bursts and falling rocks while guiding early species to safety.",
 				"Year": "200mya",
-				"Type": "Mission",
 				"Time": 60,
 				"Completed": false,
 				"ScenePath": "",
@@ -28,7 +27,6 @@ var TIME_PERIODS : Dictionary = {
 				"Name": "Take Flight",
 				"Description": "What's in the air? Correctly assemble the wing-bones of a new species to introduce flight.",
 				"Year": "150mya",
-				"Type": "Puzzle",
 				"Time": 30,
 				"Completed": false,
 				"ScenePath": "",
@@ -38,7 +36,6 @@ var TIME_PERIODS : Dictionary = {
 				"Name": "Herbivority",
 				"Description": "Save the herbivore species, fight against their carniverous predators and ensure herbivores don't go extinct.",
 				"Year": "90mya",
-				"Type": "Battle",
 				"Time": 120,
 				"Completed": false,
 				"ScenePath": "",
@@ -51,22 +48,19 @@ var TIME_PERIODS : Dictionary = {
 			{
 				"Name": "Molten Rock",
 				"Description": "A rock excavated from the molten-ridden land of Pangea.",
-				"Acquired": "Mesozoic-0", # [Event ID] or Shop
-				"Modifiers": ["Burn I"],
+				"IconPath": ""
 			},
 			
 			{
 				"Name": "Ancient Fossil",
 				"Description": "A bone from an ancient species.",
-				"Acquired": "Mesozoic-1",
-				"Modifiers": ["Knockback I"],
+				"IconPath": ""
 			},
 			
 			{
 				"Name": "Ancient Flower",
 				"Description": "A mesmorizing flower from ancient times.",
-				"Acquired": "Mesozoic-2",
-				"Modifiers": ["Thorn I"],
+				"IconPath": ""
 			},
 			
 		],
@@ -150,11 +144,9 @@ var TIME_PERIODS : Dictionary = {
 	
 }
 
-var RELICS : Dictionary = {}
-
 var MODIFIERS : Array = [
 		
-	{"Name": "Speed I", "Type": "Speed", "Value": 1.25}, # Speed Is Increased By *=[Value]
+	{"Name": "Speed I", "Type": "Speed", "Value": 1.25, "Icon": ""}, # Speed Is Increased By *=[Value]
 	{"Name": "Speed II", "Type": "Speed", "Value": 1.5},
 	{"Name": "Speed III", "Type": "Speed", "Value": 2},
 	{"Name": "Speed IV", "Type": "Speed", "Value": 2.5},
@@ -183,30 +175,6 @@ var MODIFIERS : Array = [
 	{"Name": "Slide III", "Type": "Friction", "Value": 0.05},
 		
 ]
-
-var ICONS : Dictionary = {
-	
-	"Modifiers": {
-		
-		"Speed I" = "",
-		"Speed II" = "",
-		"Speed III" = "",
-		"Speed IV" = "",
-		"Speed V" = "",
-		
-		"Drag I" = "",
-		"Drag II" = "",
-		"Drag III" = "",
-		"Drag IV" = "",
-		"Drag V" = "",
-		
-		"Slide I" = "",
-		"Slide II" = "",
-		"Slide III" = "",
-		
-	}
-	
-}
 
 #
 
