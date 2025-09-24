@@ -67,7 +67,7 @@ func handleDebug():
 	$TEMP.visible = true
 	$TEMP/Label.text = State + " - " + Direction
 	
-	if Input.is_action_just_pressed("DEBUG-TEST1"): ADD_MODIFIER.emit(false, "Slide III");
+	if Input.is_action_just_pressed("DEBUG-TEST1"): ADD_MODIFIER.emit(true, "Speed III");
 
 func handleMovement():
 	if not Can_Move: return
@@ -123,14 +123,13 @@ func addModifier(positive: bool, _name: String):
 	
 	var modifier = DATA.returnModifier(false, positive, _name)
 	
-	Modifiers.append(modifier)
+	Modifiers.append(modifier.duplicate())
 	MODIFIER_ADDED.emit()
 
 func removeModifier(_name: String):
 	if not findModifierInActive(_name): return
 	
 	var modifier = findModifierInActive(_name, true)
-	if modifier is Dictionary: modifier["CurrentlyApplied"] = false
 	
 	Modifiers.erase(modifier)
 	MODIFIER_REMOVED.emit()
@@ -140,9 +139,6 @@ func handleModifiers():
 	var friction = 0
 	
 	for mod in Modifiers:
-		if mod["CurrentlyApplied"]: continue
-		
-		mod["CurrentlyApplied"] = true
 		
 		match mod["Type"]:
 			"Speed":
