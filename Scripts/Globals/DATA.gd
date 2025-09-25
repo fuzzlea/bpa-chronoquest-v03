@@ -496,43 +496,51 @@ func returnModifier(
 	
 	return modifier
 
-func testingFunction():
+func testInitFunction():
 	
-	# create table for Time Periods
+	## STATS [:x-emoji:] -> BASE_DATA["Stats"]
 	
-	var tp_table = { 
-		
-		"id" : {"data_type": "int" , "primary_key": true , "not_null": true, "auto_increment": true},
-		"name": {"data_type": "text"},
-		"stage": {"data_type": "int"},
-		
-	}
+	## INVENTORY [:x-emoji:] -> BASE_DATA["Inventory"]
 	
-	var full_rows = []
+	pass
 	
-	for tp in TIME_PERIODS:
-		# create a row for each tp [id , name , stage (0-3)* , ] * 0 first event -> 3 being entirely completed
-		
-		print(tp + "\n")
-		
-		for event_index in range(TIME_PERIODS[tp]["Events"].size()):
-			
-			var event = TIME_PERIODS[tp]["Events"][event_index]
-			
-			var event_row = {
-				"name": event["Name"],
-				"stage": 0,
-			}
-			
-			full_rows.append(event_row)
+	## EVENTS [:check-emoji:] -> TIME_PERIODS["Events"]
 	
-	print(full_rows)
-	print("\n")
+	#var tp_table = { 
+		#
+		#"id" : {"data_type": "int" , "primary_key": true , "not_null": true, "auto_increment": true},
+		#"time_period": {"data_type": "text"},
+		#"event": {"data_type": "text"},
+		#"stage": {"data_type": "int"},
+		#
+	#}
+	#
+	#var full_rows = []
+	#
+	#for tp in TIME_PERIODS:
+		## create a row for each tp [id , name , stage (0-3)* , ] * 0 first event -> 3 being entirely completed
+		#
+		#print(tp + "\n")
+		#
+		#for event_index in range(TIME_PERIODS[tp]["Events"].size()):
+			#
+			#var event = TIME_PERIODS[tp]["Events"][event_index]
+			#
+			#var event_row = {
+				#"time_period": tp,
+				#"event": event["Name"],
+				#"stage": 0,
+			#}
+			#
+			#full_rows.append(event_row)
+	#
+	#print(full_rows)
+	#print("\n")
 #
 
 # Connectors
 
 func _ready() -> void:
-	testingFunction()
+	testInitFunction()
 
 #
