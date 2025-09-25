@@ -470,7 +470,198 @@ var MODIFIERS : Array = [
 
 var BASE_DATA : Dictionary = {
 	
+	"Stats": {
+		
+		"Health": 100,
+		"Speed": 75,
+		"Friction": 0.4,
+		
+		"Luck": 0,
+		"DamageMod" : 1,
+		"HealthMod": 1,
+		"SpeedMod": 1,
+		"CurrencyMod": 1,
+		
+	},
 	
+	"Inventory": [
+		
+		## WEAPONS
+		
+		{
+			"Name": "Rusty Sword", 
+			"Type": "Weapon", 
+			"Rarity": "Common",
+			"Value": 6, 
+			"Description": "A battered sword from the ruined library’s armory. Not much, but it can cut.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Worn Dagger", 
+			"Type": "Weapon", 
+			"Rarity": "Common",
+			"Value": 7, 
+			"Description": "A chipped dagger once used by a scribe-turned-soldier. Quick but fragile.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Bronze Axe", 
+			"Type": "Weapon", 
+			"Rarity": "Uncommon",
+			"Value": 15, 
+			"Description": "A solid bronze axe, weighted for heavy swings. Reliable, if slow.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Iron Mace", 
+			"Type": "Weapon", 
+			"Rarity": "Uncommon",
+			"Value": 18, 
+			"Description": "A spiked mace that delivers crushing blows. Favored by the Keeper’s guards in ages past.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Steel Spear", 
+			"Type": "Weapon", 
+			"Rarity": "Rare",
+			"Value": 35, 
+			"Description": "A finely crafted spear with reach. Said to have pierced the armor of Jimpus’s soldiers before time itself was broken.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Knight’s Longsword", 
+			"Type": "Weapon", 
+			"Rarity": "Rare",
+			"Value": 42, 
+			"Description": "A shining longsword once carried by a temporal knight. Its balance and edge are unmatched among mortal blades.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Great Hammer", 
+			"Type": "Weapon", 
+			"Rarity": "Epic",
+			"Value": 75, 
+			"Description": "A massive two-handed hammer. Each swing rattles the air as if shaking the threads of time.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Halberd of Ages", 
+			"Type": "Weapon", 
+			"Rarity": "Epic",
+			"Value": 95, 
+			"Description": "A polearm etched with markings from forgotten eras. Strikes feel like echoes from across centuries.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Keeper’s Blade", 
+			"Type": "Weapon", 
+			"Rarity": "Legendary",
+			"Value": 120, 
+			"Description": "A mythic longsword, once wielded by a past Keeper of Time. Its edge never dulls, and it strikes as if guided by destiny.", 
+			"Owned": 0 
+		},
+		
+		{
+			"Name": "Eternal Waraxe", 
+			"Type": "Weapon", 
+			"Rarity": "Legendary",
+			"Value": 150, 
+			"Description": "An axe said to have cleaved through battles across countless timelines. Every swing feels heavy with history.", 
+			"Owned": 0 
+		},
+		
+		## ARMOR
+		
+		{
+			"Name": "Torn Cloth Tunic", 
+			"Type": "Armor", 
+			"Rarity": "Common",
+			"Value": 5, 
+			"Description": "A simple tunic salvaged from the ruins. Offers minimal protection, but better than nothing.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Leather Vest", 
+			"Type": "Armor", 
+			"Rarity": "Common",
+			"Value": 7, 
+			"Description": "Basic stitched leather armor. Light, flexible, and modestly protective.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Bronze Chestplate", 
+			"Type": "Armor", 
+			"Rarity": "Uncommon",
+			"Value": 15, 
+			"Description": "A solid bronze chestplate. Heavy, but it can turn aside most strikes.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Iron Chainmail", 
+			"Type": "Armor", 
+			"Rarity": "Uncommon",
+			"Value": 20, 
+			"Description": "Interlinked rings of iron. Provides steady defense against cuts and slashes.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Steel Armor", 
+			"Type": "Armor", 
+			"Rarity": "Rare",
+			"Value": 35, 
+			"Description": "Polished steel plating that shields the body well. Worn by the Keeper’s knights in ancient battles.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Knight’s Plate", 
+			"Type": "Armor", 
+			"Rarity": "Rare",
+			"Value": 50, 
+			"Description": "Full-body plate forged for a temporal knight. Nearly impenetrable, though heavy to wear.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Guardian’s Cuirass", 
+			"Type": "Armor", 
+			"Rarity": "Epic",
+			"Value": 75, 
+			"Description": "A cuirass blessed by Keepers of the past. Said to resonate with the heartbeat of time itself.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Warforged Battlegear", 
+			"Type": "Armor", 
+			"Rarity": "Epic",
+			"Value": 100, 
+			"Description": "Heavy, intricate armor reinforced with relic shards. Protects against nearly all forms of attack.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Mantle of Eternity", 
+			"Type": "Armor", 
+			"Rarity": "Legendary",
+			"Value": 150, 
+			"Description": "A shimmering mantle worn by the first Keeper of Time. Said to bend fate, letting its wearer shrug off mortal blows.", 
+			"Owned": 0 
+		},
+		{
+			"Name": "Titan’s Aegis", 
+			"Type": "Armor", 
+			"Rarity": "Legendary",
+			"Value": 200, 
+			"Description": "Enormous plate armor infused with timeless essence. Immovable, unbreakable, a wall against Jimpus himself.", 
+			"Owned": 0 
+		}
+		
+	]
 	
 }
 

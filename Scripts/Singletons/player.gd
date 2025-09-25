@@ -1,14 +1,5 @@
 extends CharacterBody2D
 
-# CONFIG
-
-var CONFIG: Dictionary = {
-	
-	"BaseSpeed": 75,
-	"BaseFriction": 0.4
-	
-}
-
 #
 
 # Signals
@@ -24,9 +15,9 @@ signal REMOVE_MODIFIER(_name: String)
 
 @export var DEBUG_MODE: bool = true
 
-@export var Speed: int = CONFIG["BaseSpeed"]
+@export var Speed: int = 75
 @export var Dash_Cooldown: float = 500.0 # in ms
-@export var Friction: float = CONFIG["BaseFriction"] # less -> more slidey
+@export var Friction: float = 0.4 # less -> more slidey
 
 #
 
