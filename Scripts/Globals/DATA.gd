@@ -16,16 +16,8 @@ var TIME_PERIODS : Dictionary = {
 			
 			{
 				"Name": "Pangea",
-				"Description": "The original continent, without it, what would Earth look like? Don't find out. Restore Pangea back to its original state while getting rid of Jimpus' associates.",
+				"Description": "The original continent, without it, what would Earth look like? Don't find out. Bring the pieces of land together, and begin life itself.",
 				"Year": "200mya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Take Flight",
-				"Description": "What's in the air? Nothing if you don't restore the fossils of the bird species. Return the fossils back to the library and make sure Jimpus doesn't get his hands on them again.",
-				"Year": "150mya",
 				"Completed": false,
 				"ScenePath": "",
 			},
@@ -44,13 +36,7 @@ var TIME_PERIODS : Dictionary = {
 			
 			{
 				"Name": "Pangea",
-				"Description": "A rock in the shape of the former-continent.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "The Wing",
-				"Description": "A fossil containing the art of flight.",
+				"Description": "A rock resembling the land.",
 				"Icon": ""
 			},
 			
@@ -80,7 +66,7 @@ var TIME_PERIODS : Dictionary = {
 			
 			{
 				"Name": "Discovery of Fire",
-				"Description": "The flames are spreading — collect burning branches before they burn out while driving away Jimpus' meddling creatures.",
+				"Description": "The flames are spreading. Collect burning branches before they burn out while driving away Jimpus' meddling creatures.",
 				"Year": "400kya",
 				"Completed": false,
 				"ScenePath": "",
@@ -90,22 +76,6 @@ var TIME_PERIODS : Dictionary = {
 				"Name": "First Cave Painting",
 				"Description": "Art is power. Restore the first human symbols on the wall before Jimpus erases them from history.",
 				"Year": "40kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Wolf Domestication",
-				"Description": "A wolf pup has wandered close — lure it with food and protect it from Jimpus' twisted pack. The bond of loyalty must remain intact.",
-				"Year": "30kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Ice Age Hunt",
-				"Description": "Mammoths roam the frozen plains. Restore the hunt, fend off icy chaos, and keep humanity’s survival alive.",
-				"Year": "20kya",
 				"Completed": false,
 				"ScenePath": "",
 			},
@@ -126,25 +96,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Wolf Collar",
-				"Description": "A braided cord symbolizing the bond between man and wolf.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Mammoth Tusk",
-				"Description": "A shard of ivory holding the strength of the great Ice Age hunt.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
-			"Name": "The Frozen Titan",
+			"Name": "The Frozen Mammoth",
 			"Description": "A colossal mammoth corrupted by Jimpus' frost. Within its heart lies the Pre-History Key. Defeat it and restore the age of beginnings.",
-			"Health": 120,
+			"Health": 200,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -172,22 +130,6 @@ var TIME_PERIODS : Dictionary = {
 				"ScenePath": "",
 			},
 			
-			{
-				"Name": "Early Village Fire",
-				"Description": "Save villagers from chaos — extinguish spreading flames while Jimpus' trickery fuels the blaze.",
-				"Year": "4.5kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Trade Caravan",
-				"Description": "The road is perilous — escort a caravan safely across the land while fending off raiders and wolves.",
-				"Year": "4kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
 		],
 		
 		"Relics": [
@@ -204,25 +146,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Village Torch",
-				"Description": "A charred torch that symbolizes community resilience.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Caravan Token",
-				"Description": "A decorated trinket carried along ancient trade routes.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
 			"Name": "The Beast of Burden",
 			"Description": "A colossal ox, twisted into fury by Jimpus. Inside its harness lies the Stone Age Key.",
-			"Health": 130,
+			"Health": 300,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -250,22 +180,6 @@ var TIME_PERIODS : Dictionary = {
 				"ScenePath": "",
 			},
 			
-			{
-				"Name": "Trojan War",
-				"Description": "The horse must remain hidden — protect your soldiers from Jimpus' hordes outside the walls of Troy.",
-				"Year": "1.2kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Bronze Age Collapse",
-				"Description": "The world falls into fire — escape burning cities while retrieving fragments of lost knowledge.",
-				"Year": "1.1kya",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
 		],
 		
 		"Relics": [
@@ -282,25 +196,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Trojan Spear",
-				"Description": "A weapon said to have pierced the fate of Troy.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Charred Scroll",
-				"Description": "A half-burned record from the collapse — fragile but vital.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
 			"Name": "The Colossus",
 			"Description": "An enormous bronze guardian animated by Jimpus. Within its chestplate lies the Bronze Age Key.",
-			"Health": 150,
+			"Health": 400,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -313,25 +215,9 @@ var TIME_PERIODS : Dictionary = {
 		"Events": [
 			
 			{
-				"Name": "Viking Raid on Lindisfarne",
-				"Description": "Defend sacred relics from Jimpus’ raiding warband of Vikings.",
-				"Year": "793",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
 				"Name": "Signing of Magna Carta",
 				"Description": "The parchment must survive — stop Jimpus’ knights from tearing it apart before it’s signed.",
 				"Year": "1215",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Mongols Sack Baghdad",
-				"Description": "The libraries burn — save scrolls from the flames before Jimpus’ shadows consume them.",
-				"Year": "1258",
 				"Completed": false,
 				"ScenePath": "",
 			},
@@ -349,26 +235,14 @@ var TIME_PERIODS : Dictionary = {
 		"Relics": [
 			
 			{
-				"Name": "Monk’s Codex",
-				"Description": "A preserved manuscript saved from raiders.",
-				"Icon": ""
-			},
-			
-			{
 				"Name": "Sealed Charter",
 				"Description": "The Magna Carta’s seal, carrying the weight of justice.",
 				"Icon": ""
 			},
 			
 			{
-				"Name": "Golden Scroll",
-				"Description": "One of Baghdad’s illuminated texts, glowing with wisdom.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Longbow String",
-				"Description": "A reinforced bowstring — small, but decisive in battle.",
+				"Name": "Blood of the Knight",
+				"Description": "The Blood of the Wounded on a rock, representing war.",
 				"Icon": ""
 			},
 			
@@ -378,7 +252,7 @@ var TIME_PERIODS : Dictionary = {
 			
 			"Name": "The Black Knight",
 			"Description": "A towering knight clad in cursed armor forged by Jimpus. Slay him to recover the Middle Ages Key.",
-			"Health": 160,
+			"Health": 600,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -391,9 +265,9 @@ var TIME_PERIODS : Dictionary = {
 		"Events": [
 			
 			{
-				"Name": "Printing of Gutenberg Bible",
-				"Description": "Assemble type pieces and defend the press from Jimpus’ saboteurs.",
-				"Year": "1455",
+				"Name": "Black Death",
+				"Description": "Deliver medicine and prayers to plague-stricken villagers while Jimpus spreads pestilence.",
+				"Year": "1347",
 				"Completed": false,
 				"ScenePath": "",
 			},
@@ -406,29 +280,13 @@ var TIME_PERIODS : Dictionary = {
 				"ScenePath": "",
 			},
 			
-			{
-				"Name": "Galileo’s Trial",
-				"Description": "Smuggle Galileo’s telescope past guards in Jimpus’ pay.",
-				"Year": "1633",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Black Death",
-				"Description": "Deliver medicine and prayers to plague-stricken villagers while Jimpus spreads pestilence.",
-				"Year": "1347",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
 		],
 		
 		"Relics": [
 			
 			{
-				"Name": "Printing Press Gear",
-				"Description": "A small cog that turned the tide of knowledge.",
+				"Name": "Plague Cross",
+				"Description": "A talisman hung on plague doors. A warning and a prayer.",
 				"Icon": ""
 			},
 			
@@ -438,25 +296,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Galileo’s Lens",
-				"Description": "The glass eye that saw the heavens.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Plague Cross",
-				"Description": "A talisman hung on plague doors — a warning and a prayer.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
 			"Name": "The Inquisitor",
 			"Description": "A robed figure empowered by Jimpus to suppress truth. The Renaissance Key burns within his grasp.",
-			"Health": 170,
+			"Health": 1000,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -484,22 +330,6 @@ var TIME_PERIODS : Dictionary = {
 				"ScenePath": "",
 			},
 			
-			{
-				"Name": "Transcontinental Railroad",
-				"Description": "Lay the tracks quickly while fending off Jimpus’ stampeding beasts.",
-				"Year": "1869",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
-			{
-				"Name": "Factory Fire",
-				"Description": "Save trapped workers before Jimpus’ flames consume the factory.",
-				"Year": "1911",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
 		],
 		
 		"Relics": [
@@ -516,25 +346,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Rail Spike",
-				"Description": "A steel spike that united a continent.",
-				"Icon": ""
-			},
-			
-			{
-				"Name": "Charred Gear",
-				"Description": "A scorched machine part saved from the flames.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
 			"Name": "The Iron Titan",
 			"Description": "A monstrous automaton powered by Jimpus’ malice. Its furnace holds the Industrial Key.",
-			"Health": 190,
+			"Health": 1500,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -545,14 +363,6 @@ var TIME_PERIODS : Dictionary = {
 	"Modern History" : {
 		
 		"Events": [
-			
-			{
-				"Name": "Titanic Sinks",
-				"Description": "Guide survivors to safety before Jimpus drags them into the icy depths.",
-				"Year": "1912",
-				"Completed": false,
-				"ScenePath": "",
-			},
 			
 			{
 				"Name": "Moon Landing",
@@ -570,23 +380,9 @@ var TIME_PERIODS : Dictionary = {
 				"ScenePath": "",
 			},
 			
-			{
-				"Name": "Chernobyl Meltdown",
-				"Description": "Contain the reactor before Jimpus’ corruption poisons the future.",
-				"Year": "1986",
-				"Completed": false,
-				"ScenePath": "",
-			},
-			
 		],
 		
 		"Relics": [
-			
-			{
-				"Name": "Frozen Locket",
-				"Description": "A keepsake from the icy waters of the Titanic.",
-				"Icon": ""
-			},
 			
 			{
 				"Name": "Lunar Rock",
@@ -600,19 +396,13 @@ var TIME_PERIODS : Dictionary = {
 				"Icon": ""
 			},
 			
-			{
-				"Name": "Radiant Core",
-				"Description": "A glowing fragment of the reactor — dangerous, yet vital.",
-				"Icon": ""
-			},
-			
 		],
 		
 		"Boss": {
 			
 			"Name": "The Shadow of Tomorrow",
 			"Description": "A shifting figure made of smoke, steel, and fear, birthed by Jimpus to end history itself. Within it lies the Modern Era Key.",
-			"Health": 220,
+			"Health": 3000,
 			"Completed": false,
 			"ScenePath": "",
 			
@@ -624,7 +414,15 @@ var TIME_PERIODS : Dictionary = {
 		
 		"Events": [],
 		"Relics": [],
-		"Boss": {}
+		"Boss": {
+			
+			"Name": "Jimpus",
+			"Description": "heh.. my name's jimpus.. *fart*",
+			"Health": 3000,
+			"Completed": false,
+			"ScenePath": "",
+			
+		}
 		
 	},
 	
