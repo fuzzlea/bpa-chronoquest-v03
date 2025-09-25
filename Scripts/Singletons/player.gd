@@ -25,7 +25,7 @@ signal REMOVE_MODIFIER(_name: String)
 @export var DEBUG_MODE: bool = true
 
 @export var Speed: int = CONFIG["BaseSpeed"]
-@export var Dash_Cooldown: float = 1000.0 # in ms
+@export var Dash_Cooldown: float = 500.0 # in ms
 @export var Friction: float = CONFIG["BaseFriction"] # less -> more slidey
 
 #
@@ -89,7 +89,7 @@ func handleDash():
 		Currently_Dashing = true
 		
 		Last_Dash = Time.get_ticks_msec()
-		velocity = _Input * 2500
+		velocity = _Input * 1000
 
 func handleStateAndDir():
 	if _Input == Vector2.ZERO:
