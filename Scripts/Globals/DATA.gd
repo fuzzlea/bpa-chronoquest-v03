@@ -1,3 +1,11 @@
+## EVERYTHING THAT WILL BE SAVED IN THE DATABASE GOES HERE
+
+## Possible Idea for multiple saves
+# base data is in a dict
+# on first init the database creates [however many save files prob 3] tables w all the base data 
+# when a new save is started, a temp array is created IN GAME with all the data from the db
+# temp arr is the only thing being updated in game before save, save game = temp arr merge with db table
+
 extends Node
 
 # Variables
@@ -460,6 +468,12 @@ var MODIFIERS : Array = [
 		
 ]
 
+var BASE_DATA : Dictionary = {
+	
+	
+	
+}
+
 #
 
 # Functions
@@ -482,11 +496,43 @@ func returnModifier(
 	
 	return modifier
 
+func testingFunction():
+	
+	# create table for Time Periods
+	
+	var tp_table = { 
+		
+		"id" : {"data_type": "int" , "primary_key": true , "not_null": true, "auto_increment": true},
+		"name": {"data_type": "text"},
+		"stage": {"data_type": "int"},
+		
+	}
+	
+	var full_rows = []
+	
+	for tp in TIME_PERIODS:
+		# create a row for each tp [id , name , stage (0-3)* , ] * 0 first event -> 3 being entirely completed
+		
+		print(tp + "\n")
+		
+		for event_index in range(TIME_PERIODS[tp]["Events"].size()):
+			
+			var event = TIME_PERIODS[tp]["Events"][event_index]
+			
+			var event_row = {
+				"name": event["Name"],
+				"stage": 0,
+			}
+			
+			full_rows.append(event_row)
+	
+	print(full_rows)
+	print("\n")
 #
 
 # Connectors
 
 func _ready() -> void:
-	pass
+	testingFunction()
 
 #
