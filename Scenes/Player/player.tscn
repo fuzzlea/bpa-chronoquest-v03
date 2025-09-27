@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://m2780x36icmh"]
+[gd_scene load_steps=39 format=3 uid="uid://m2780x36icmh"]
 
 [ext_resource type="Script" uid="uid://c1hdhj1esa8vq" path="res://Scripts/Singletons/player.gd" id="1_htcer"]
+[ext_resource type="PackedScene" uid="uid://cagmbs4gbutt4" path="res://Scenes/UI/menu.tscn" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://p5hyfbmotgnx" path="res://Assets/Prototyping/Prototype_Character/prototype_character.png" id="6_jhyir"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_htcer"]
@@ -329,3 +330,5 @@ position_smoothing_enabled = true
 position = Vector2(0, 6)
 rotation = -1.5707941
 shape = SubResource("CapsuleShape2D_06tpx")
+
+[node name="Menu" parent="." instance=ExtResource("3_xpcdj")]

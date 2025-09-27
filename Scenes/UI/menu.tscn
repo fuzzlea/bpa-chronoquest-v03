@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cagmbs4gbutt4"]
+
+[ext_resource type="Script" uid="uid://bjgk15cv36pcp" path="res://Scripts/Singletons/menu.gd" id="1_nhmg3"]
+
+[sub_resource type="Gradient" id="Gradient_lqjpb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.5529412)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nhmg3"]
+gradient = SubResource("Gradient_lqjpb")
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_nhmg3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_nhmg3")

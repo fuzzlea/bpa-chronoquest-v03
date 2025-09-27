@@ -9,6 +9,9 @@ signal MODIFIER_REMOVED
 signal ADD_MODIFIER(_name: String)
 signal REMOVE_MODIFIER(_name: String)
 
+signal DISABLE_MOVEMENT
+signal ENABLE_MOVEMENT
+
 #
 
 # Exports
@@ -24,6 +27,7 @@ signal REMOVE_MODIFIER(_name: String)
 # Onreadys 
 
 @onready var AnimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var Menu : CanvasLayer = $Menu
 
 #
 
@@ -36,8 +40,10 @@ var Modifiers: Array = []
 
 var Can_Move: bool = true
 var Can_Dash: bool = true
+var Can_OpenMenu : bool = true
 
 var Currently_Animating: bool = false
+var Currently_InMenu : bool = false
 var Currently_Dashing: bool = false:
 	set(v):
 		Currently_Dashing = v
@@ -51,6 +57,18 @@ var Last_Dash: float = 0.0
 #
 
 # Functions
+
+func disableMovement():
+	
+	_Input = Vector2(0, 0)
+	State = "idle"
+	
+	Can_Move = false
+	Can_Dash = false
+
+func enableMovement():
+	Can_Move = true
+	Can_Dash = true
 
 func handleDebug():
 	if not DEBUG_MODE: return
@@ -81,6 +99,16 @@ func handleDash():
 		
 		Last_Dash = Time.get_ticks_msec()
 		velocity = _Input * 1000
+
+func handleMenu():
+	if not Can_OpenMenu: return
+	if Input.is_action_just_pressed("Player-OpenMenu"):
+		if Currently_InMenu:
+			Menu.emit_signal("CLOSE")
+			Currently_InMenu = false
+		else:
+			Menu.emit_signal("OPEN")
+			Currently_InMenu = true
 
 func handleStateAndDir():
 	if _Input == Vector2.ZERO:
@@ -133,6 +161,9 @@ func connectSignals():
 	
 	MODIFIER_ADDED.connect(func(): handleModifiers())
 	MODIFIER_REMOVED.connect(func(): handleModifiers())
+	
+	DISABLE_MOVEMENT.connect(disableMovement)
+	ENABLE_MOVEMENT.connect(enableMovement)
 
 #
 
@@ -141,6 +172,7 @@ func connectSignals():
 func _physics_process(_delta: float) -> void:
 	handleMovement()
 	handleDash()
+	handleMenu()
 	
 	handleStateAndDir()
 	handleAnims()
