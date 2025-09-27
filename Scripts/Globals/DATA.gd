@@ -699,82 +699,68 @@ func returnModifier(
 
 func testInitFunction():
 	
+	print("Initializing Data...\n\n")
+	
+	var equipped_main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
+	var stats_main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
+	
+	var equipped_full_rows = []
+	var stats_full_rows = []
+	var inv_full_rows = []
+	var events_full_rows = []
+	
+	var equipped_temp_table = {}
+	var stats_temp_table = {}
+	
+	print("Initializing Equipped Data...\n")
+	
+	for item in BASE_DATA["CurrentlyEquipped"]: # create the table
+		equipped_main_table[item] = { "data_type": "text" }
+	
+	for item in BASE_DATA["CurrentlyEquipped"]:
+		equipped_temp_table[item] = str(BASE_DATA["CurrentlyEquipped"][item])
+	
+	equipped_full_rows.append(equipped_temp_table)
+	
+	print("Initializing Stats Data...\n")
+	
+	for stat in BASE_DATA["Stats"]: # create the table
+		stats_main_table[stat] = { "data_type": "text" }
+	
+	for stat in BASE_DATA["Stats"]:
+		stats_temp_table[stat] = str(BASE_DATA["Stats"][stat])
+	
+	stats_full_rows.append(stats_temp_table)
+	
+	print("Initializing Inventory Data...\n")
+	
+	for index in range(BASE_DATA["Inventory"].size()):
+		var temp_table = {"name": "", "type": "", "owned": 0}
+		var item = BASE_DATA["Inventory"][index]
+		
+		temp_table["name"] = item["Name"]
+		temp_table["type"] = item["Type"]
+		temp_table["owned"] = item["Owned"]
+		
+		inv_full_rows.append(temp_table)
+	
+	for tp in TIME_PERIODS:
+		
+		for event_index in range(TIME_PERIODS[tp]["Events"].size()):
+			
+			var event = TIME_PERIODS[tp]["Events"][event_index]
+			
+			var event_row = {
+				"time_period": tp,
+				"event": event["Name"],
+				"stage": 0,
+			}
+			
+			events_full_rows.append(event_row)
+	
+	print("\nAll Data Initialized!\n")
 	## CURRENT RUN DATA [:x-emoji:] -> EQUIPPED , STATS, INVENTORY, EVENTS
 	
-	pass
-	
-	## EQUIPPED [:check-emoji:] -> BASE_DATA["CurrentlyEquipped"]
-	
-	#var main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
-	#var full_rows = []
-	#
-	#for item in BASE_DATA["CurrentlyEquipped"]: # create the table
-		#main_table[item] = { "data_type": "text" }
-	#
-	## create the row for each
-	#var temp_table = {}
-	#for item in BASE_DATA["CurrentlyEquipped"]:
-		#temp_table[item] = str(BASE_DATA["CurrentlyEquipped"][item])
-	#
-	#full_rows.append(temp_table)
-	#
-	#print(full_rows)
-	
-	## STATS [:check-emoji:] -> BASE_DATA["Stats"]
-	
-	#var main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
-	#var full_rows = []
-	#
-	#for stat in BASE_DATA["Stats"]: # create the table
-		#main_table[stat] = { "data_type": "text" }
-	#
-	## create the row for each
-	#var temp_table = {}
-	#for stat in BASE_DATA["Stats"]:
-		#temp_table[stat] = str(BASE_DATA["Stats"][stat])
-	#
-	#full_rows.append(temp_table)
-	#
-	#print(full_rows)
-	
-	## INVENTORY [:check-emoji:] -> BASE_DATA["Inventory"]
-
-	#var full_rows = []
-	#
-	#for index in range(BASE_DATA["Inventory"].size()):
-		#var temp_table = {"name": "", "type": "", "owned": 0}
-		#var item = BASE_DATA["Inventory"][index]
-		#
-		#temp_table["name"] = item["Name"]
-		#temp_table["type"] = item["Type"]
-		#temp_table["owned"] = item["Owned"]
-		#
-		#full_rows.append(temp_table)
-	#
-	#print(full_rows)
-	
-	## EVENTS [:check-emoji:] -> TIME_PERIODS["Events"]
-	
-	#var full_rows = []
-	#
-	#for tp in TIME_PERIODS:
-		## create a row for each tp [id , name , stage (0-3)* , ] * 0 first event -> 3 being entirely completed
-		#
-		#print(tp + "\n")
-		#
-		#for event_index in range(TIME_PERIODS[tp]["Events"].size()):
-			#
-			#var event = TIME_PERIODS[tp]["Events"][event_index]
-			#
-			#var event_row = {
-				#"time_period": tp,
-				#"event": event["Name"],
-				#"stage": 0,
-			#}
-			#
-			#full_rows.append(event_row)
-	#
-	#print(full_rows)
 
 # Connectors
 
