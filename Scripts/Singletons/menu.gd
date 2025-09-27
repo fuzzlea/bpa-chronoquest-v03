@@ -19,7 +19,7 @@ func open():
 	get_parent().emit_signal("DISABLE_MOVEMENT")
 	
 	var t = self.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	t.tween_property(BG, "modulate", Color.from_rgba8(0,0,0,148), 0.2)
+	t.tween_property(BG, "modulate", Color.from_rgba8(0,0,0,200), 0.2)
 
 func close():
 	

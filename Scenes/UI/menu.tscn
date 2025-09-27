@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cagmbs4gbutt4"]
+[gd_scene load_steps=5 format=3 uid="uid://cagmbs4gbutt4"]
 
 [ext_resource type="Script" uid="uid://bjgk15cv36pcp" path="res://Scripts/Singletons/menu.gd" id="1_nhmg3"]
+[ext_resource type="PackedScene" uid="uid://b8w1wnbs8mkbw" path="res://Scenes/UI/menu_slot.tscn" id="2_uk6bn"]
 
 [sub_resource type="Gradient" id="Gradient_lqjpb"]
 offsets = PackedFloat32Array(0)
@@ -19,3 +20,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_nhmg3")
+
+[node name="MenuSlot" parent="BG" instance=ExtResource("2_uk6bn")]
+layout_mode = 1
+offset_left = -820.0
+offset_top = -448.0
+offset_right = -732.0
+offset_bottom = -360.0
+
+[node name="MenuSlot2" parent="BG" instance=ExtResource("2_uk6bn")]
+layout_mode = 1
+offset_left = -124.0
+offset_top = -315.0
+offset_right = -36.0
+offset_bottom = -227.0
+
+[node name="MenuSlot3" parent="BG" instance=ExtResource("2_uk6bn")]
+layout_mode = 1
+offset_left = -570.0
+offset_top = 4.0
+offset_right = -482.0
+offset_bottom = 92.0
+
+[node name="MenuSlot4" parent="BG" instance=ExtResource("2_uk6bn")]
+layout_mode = 1
+offset_left = 411.0
+offset_right = 499.0
+
+[node name="MenuSlot5" parent="BG" instance=ExtResource("2_uk6bn")]
+layout_mode = 1
+offset_left = 147.0
+offset_top = 273.0
+offset_right = 235.0
+offset_bottom = 361.0
