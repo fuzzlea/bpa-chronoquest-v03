@@ -480,7 +480,7 @@ var BASE_DATA : Dictionary = {
 		"DamageMod" : 1,
 		"HealthMod": 1,
 		"SpeedMod": 1,
-		"CurrencyMod": 1,
+		"CurrencyMod": 1
 		
 	},
 	
@@ -661,7 +661,17 @@ var BASE_DATA : Dictionary = {
 			"Owned": 0 
 		}
 		
-	]
+	],
+	
+	"CurrentlyEquipped": {
+		
+		"Armor": "",
+		"Weapon": "",
+		"Cosmetic": "",
+		"Charm": "",
+		"Pet": ""
+		
+	}
 	
 }
 
@@ -689,23 +699,60 @@ func returnModifier(
 
 func testInitFunction():
 	
-	## STATS [:x-emoji:] -> BASE_DATA["Stats"]
+	## EQUIPPED [:x-emoji:] -> BASE_DATA["CurrentlyEquipped"]
 	
-	## INVENTORY [:x-emoji:] -> BASE_DATA["Inventory"]
+	#var main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
+	#var full_rows = []
+	#
+	#for item in BASE_DATA["CurrentlyEquipped"]: # create the table
+		#main_table[item] = { "data_type": "text" }
+	#
+	## create the row for each
+	#var temp_table = {}
+	#for item in BASE_DATA["CurrentlyEquipped"]:
+		#temp_table[item] = str(BASE_DATA["CurrentlyEquipped"][item])
+	#
+	#full_rows.append(temp_table)
+	#
+	#print(full_rows)
 	
 	pass
 	
+	## STATS [:check-emoji:] -> BASE_DATA["Stats"]
+	
+	#var main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
+	#var full_rows = []
+	#
+	#for stat in BASE_DATA["Stats"]: # create the table
+		#main_table[stat] = { "data_type": "text" }
+	#
+	## create the row for each
+	#var temp_table = {}
+	#for stat in BASE_DATA["Stats"]:
+		#temp_table[stat] = str(BASE_DATA["Stats"][stat])
+	#
+	#full_rows.append(temp_table)
+	#
+	#print(full_rows)
+	
+	## INVENTORY [:check-emoji:] -> BASE_DATA["Inventory"]
+
+	#var full_rows = []
+	#
+	#for index in range(BASE_DATA["Inventory"].size()):
+		#var temp_table = {"name": "", "type": "", "owned": 0}
+		#var item = BASE_DATA["Inventory"][index]
+		#
+		#temp_table["name"] = item["Name"]
+		#temp_table["type"] = item["Type"]
+		#temp_table["owned"] = item["Owned"]
+		#
+		#full_rows.append(temp_table)
+	#
+	#print(full_rows)
+	
 	## EVENTS [:check-emoji:] -> TIME_PERIODS["Events"]
 	
-	#var tp_table = { 
-		#
-		#"id" : {"data_type": "int" , "primary_key": true , "not_null": true, "auto_increment": true},
-		#"time_period": {"data_type": "text"},
-		#"event": {"data_type": "text"},
-		#"stage": {"data_type": "int"},
-		#
-	#}
-	#
 	#var full_rows = []
 	#
 	#for tp in TIME_PERIODS:
@@ -726,8 +773,6 @@ func testInitFunction():
 			#full_rows.append(event_row)
 	#
 	#print(full_rows)
-	#print("\n")
-#
 
 # Connectors
 

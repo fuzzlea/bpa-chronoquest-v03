@@ -11,12 +11,7 @@ signal MOUSE_LEAVE
 
 #
 
-@export var Data : Dictionary = {
-	
-	"CurrentItem": "",
-	"AcceptedItemTypes": []
-	
-}
+@export var CurrentItem : String = ""
 
 #
 
