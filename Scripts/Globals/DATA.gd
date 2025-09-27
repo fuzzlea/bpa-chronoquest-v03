@@ -699,7 +699,9 @@ func returnModifier(
 
 func testInitFunction():
 	
-	## EQUIPPED [:x-emoji:] -> BASE_DATA["CurrentlyEquipped"]
+	pass
+	
+	## EQUIPPED [:check-emoji:] -> BASE_DATA["CurrentlyEquipped"]
 	
 	#var main_table = {"id": { "data_type": "int", "primary_key": true, "not_null": true, "auto_increment": true }}
 	#var full_rows = []
@@ -715,8 +717,6 @@ func testInitFunction():
 	#full_rows.append(temp_table)
 	#
 	#print(full_rows)
-	
-	pass
 	
 	## STATS [:check-emoji:] -> BASE_DATA["Stats"]
 	
