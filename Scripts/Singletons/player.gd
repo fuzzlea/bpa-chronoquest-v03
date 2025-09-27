@@ -25,6 +25,7 @@ signal ENABLE_MOVEMENT
 # Onreadys 
 
 @onready var AnimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ArmorSprite : AnimatedSprite2D = $AnimatedSprite2D/Armor
 @onready var Menu : CanvasLayer = $Menu
 
 #
@@ -35,6 +36,7 @@ var State: String = "idle"
 var Direction: String = "down"
 var _Input: Vector2
 var Modifiers: Array = []
+var EquippedArmor : String = "Torn Cloth Tunic"
 
 var Can_Move: bool = true
 var Can_Dash: bool = true
@@ -74,7 +76,7 @@ func handleDebug():
 	$TEMP.visible = true
 	$TEMP/Label.text = State + " - " + Direction
 	
-	if Input.is_action_just_pressed("DEBUG-TEST1"): ADD_MODIFIER.emit("Speed III"); ADD_MODIFIER.emit("Slide III")
+	if Input.is_action_just_pressed("DEBUG-TEST1"): EquippedArmor = ""
 
 func handleMovement():
 	if not Can_Move: return
@@ -126,6 +128,11 @@ func handleAnims():
 	if not AnimatedSprite.sprite_frames.has_animation(State + "_" + Direction): return
 	
 	AnimatedSprite.play(State + "_" + Direction)
+	
+	if EquippedArmor != "" && ArmorSprite.sprite_frames.has_animation(EquippedArmor + "_" + State + "_" + Direction) : 
+		ArmorSprite.play(EquippedArmor + "_" + State + "_" + Direction)
+	else: ArmorSprite.play("default")
+	
 	Currently_Animating = true
 
 func findModifierInActive(_name):

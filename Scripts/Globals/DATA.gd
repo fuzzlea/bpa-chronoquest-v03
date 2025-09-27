@@ -699,6 +699,8 @@ func returnModifier(
 
 func testInitFunction():
 	
+	## CURRENT RUN DATA [:x-emoji:] -> EQUIPPED , STATS, INVENTORY, EVENTS
+	
 	pass
 	
 	## EQUIPPED [:check-emoji:] -> BASE_DATA["CurrentlyEquipped"]
