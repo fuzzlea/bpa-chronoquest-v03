@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-#
-
 # Signals
 
 signal MODIFIER_ADDED
